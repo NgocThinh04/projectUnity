@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -17,23 +18,19 @@ public class BillEntity {
     private Long idBill;
 
     @Column(name = "date_bill")
-    private Date dateBill;
+    private LocalDate dateBill = LocalDate.now();
 
     @Column(name = "total_bill")
-    private Integer totalBill;
+    private Integer itemPrice;
 
     public Long getIdBill() {
         return idBill;
     }
 
-    public Date getDateBill() {
-        return dateBill;
+    public Integer getItemPrice() {
+        return itemPrice;
     }
-
-    public Integer setTotalBill() {
-        return totalBill;
-    }
-    public void getTotalBill(Integer totalBill) {
-        this.totalBill = totalBill;
+    public void setItemPrice(Integer totalBill) {
+        this.itemPrice = totalBill;
     }
 }
